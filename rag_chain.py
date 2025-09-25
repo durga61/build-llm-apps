@@ -28,7 +28,8 @@ def main():
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
     llm = ChatOpenAI()
 
-    query = "what are Nike values and mission statement?"
+    #query = "what are Nike values and mission statement?"
+    query = "give me a summary of the credit card statement?"
     #without rag only llm repsonse
     # chain = PromptTemplate.from_template(template=query) | llm
     # response =  chain.invoke(input={})
