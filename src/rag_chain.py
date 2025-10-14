@@ -39,8 +39,19 @@ def main():
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
     combine_docs_chain = create_stuff_documents_chain(llm, retrieval_qa_chat_prompt)
     retrieval_chain = create_retrieval_chain(retriever=vector_store.as_retriever(), combine_docs_chain=combine_docs_chain)
-    result = retrieval_chain.invoke(input={"input": query})
-    print(result["answer"])
+    queries = [
+    "Summarize monthly spending across all months.",
+    "List top 10 merchants by total spend across the months.",
+    "Find recurring subscriptions that appear every month.",
+    "Identify anomalies: unusually large purchases compared to monthly averages."
+    ]
+
+    for q in queries:
+        response = retrieval_chain.invoke({"input": q})
+        print("Q:", q)
+        print("A:", response["answer"])
+        print("="*60)
+    #result = retrieval_chain.invoke(input={"input": queries})
+    #print(result["answer"])
 if __name__ == "__main__":
     main()
-    print("Loading, splitting, embedding, and storing document...")
