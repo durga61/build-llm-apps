@@ -1,4 +1,4 @@
-# langchain-course
+# build-llm-apps
 
 ## Overview
 This repository is designed to help you explore the LangChain ecosystem and build powerful applications using Large Language Models (LLMs). It includes exercises, utilities, and pipelines for Retrieval-Augmented Generation (RAG).
