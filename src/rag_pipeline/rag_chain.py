@@ -22,18 +22,10 @@ def main():
     Initializes OpenAI embeddings and a chat-based LLM, constructs a prompt from a template using the given query,
     invokes the LLM chain, and prints the generated response content.
     Note:
-    - The query used is "what is Pinecone in machine learning?".
     - Assumes necessary imports and API keys are configured for OpenAIEmbeddings and ChatOpenAI.
     """
     embeddings = OpenAIEmbeddings(model="text-embedding-3-large")
     llm = ChatOpenAI()
-
-    #query = "what are Nike values and mission statement?"
-    query = "give me a summary of the credit card statement?"
-    #without rag only llm repsonse
-    # chain = PromptTemplate.from_template(template=query) | llm
-    # response =  chain.invoke(input={})
-    # print(response.content)
 
     vector_store = PineconeVectorStore(embedding=embeddings, index_name=os.environ['PC_INDEX'])
     retrieval_qa_chat_prompt = hub.pull("langchain-ai/retrieval-qa-chat")
