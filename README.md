@@ -43,6 +43,19 @@ python prompt_template_llm_invoke.py
 ### RAG Pipeline
 The `src/rag_pipeline` folder contains scripts for building a Retrieval-Augmented Generation pipeline. Start with `load_pdf_document.py` to load documents and proceed with `rag_chain.py` for querying.
 
+## Environment Variables
+
+This project uses environment variables to securely manage sensitive information such as API keys and passwords. Create a `.env` file in the root directory and add the required variables:
+
+```plaintext
+OPENAI_API_KEY=your_open_api_key
+PINECONE_API_KEY=your_pinecone_api_key
+PC_INDEX=your_pinecone_index_name
+CREDIT_CARD_PDF_PASSWORD=your_pdf_password
+```
+
+Ensure that the `.env` file is excluded from version control, as specified in the `.gitignore` file.
+
 ## Contributing
 Feel free to open issues or submit pull requests to improve this repository.
 
